@@ -16,4 +16,8 @@ iOS Client Application including Nutforms library prototype
   - [AttributeBuilder](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/AttributeBuilder.swift)
 - Application
   - [AppDelegate](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/AppDelegate.swift)
-  - [ViewController](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Attribute.swift)
+  - [ViewController](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/ViewController.swift)
+
+## TODO
+  - Load aspects from server
+  - Build Model from the downloaded aspects, see (https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/ModelBuilder.swift)
