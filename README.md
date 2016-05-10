@@ -21,3 +21,4 @@ iOS Client Application including Nutforms library prototype
 ## TODO
   - Load aspects from server
   - Build Model from the downloaded aspects, see (https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/ModelBuilder.swift)
+  - Register callback functions and change values in Rich Model
