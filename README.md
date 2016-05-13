@@ -1,5 +1,6 @@
-# nutforms-ios-client
-iOS Client Application including Nutforms library prototype
+# Nutforms iOS Client
+
+Automatic aspect-oriented form generation for iOS applications
 
 ## Important Classes
 - Nutforms Rich Model
