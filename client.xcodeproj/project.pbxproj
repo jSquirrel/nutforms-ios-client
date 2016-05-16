@@ -14,6 +14,10 @@
 		DC9E22EF1CEA294D0059E49D /* AttributeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E22EE1CEA294D0059E49D /* AttributeAction.swift */; };
 		DC9E22F31CEA2B460059E49D /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E22F21CEA2B460059E49D /* Observer.swift */; };
 		DC9E22F51CEA2DE30059E49D /* ModelBuilderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E22F41CEA2DE30059E49D /* ModelBuilderTest.swift */; };
+		DC9E22F71CEA7CDA0059E49D /* AttributeRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E22F61CEA7CDA0059E49D /* AttributeRenderer.swift */; };
+		DC9E22F91CEA7CEA0059E49D /* Submit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E22F81CEA7CEA0059E49D /* Submit.swift */; };
+		DC9E22FB1CEA7DD40059E49D /* Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E22FA1CEA7DD40059E49D /* Relation.swift */; };
+		DC9E22FD1CEA7F470059E49D /* RelationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E22FC1CEA7F470059E49D /* RelationBuilder.swift */; };
 		DCE0BC7D1CE20B1D004251AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE0BC7C1CE20B1D004251AF /* AppDelegate.swift */; };
 		DCE0BC7F1CE20B1D004251AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE0BC7E1CE20B1D004251AF /* ViewController.swift */; };
 		DCE0BC821CE20B1D004251AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCE0BC801CE20B1D004251AF /* Main.storyboard */; };
@@ -53,6 +57,10 @@
 		DC9E22EE1CEA294D0059E49D /* AttributeAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeAction.swift; path = Nutforms/Observer/AttributeAction.swift; sourceTree = "<group>"; };
 		DC9E22F21CEA2B460059E49D /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Observer.swift; path = Nutforms/Observer/Observer.swift; sourceTree = "<group>"; };
 		DC9E22F41CEA2DE30059E49D /* ModelBuilderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBuilderTest.swift; sourceTree = "<group>"; };
+		DC9E22F61CEA7CDA0059E49D /* AttributeRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeRenderer.swift; path = Nutforms/Model/AttributeRenderer.swift; sourceTree = "<group>"; };
+		DC9E22F81CEA7CEA0059E49D /* Submit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Submit.swift; path = Nutforms/Model/Submit.swift; sourceTree = "<group>"; };
+		DC9E22FA1CEA7DD40059E49D /* Relation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Relation.swift; path = Nutforms/Model/Relation.swift; sourceTree = "<group>"; };
+		DC9E22FC1CEA7F470059E49D /* RelationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelationBuilder.swift; path = Nutforms/Model/RelationBuilder.swift; sourceTree = "<group>"; };
 		DCE0BC791CE20B1D004251AF /* client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE0BC7C1CE20B1D004251AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCE0BC7E1CE20B1D004251AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +132,10 @@
 				DCE0BCAB1CE212DF004251AF /* AttributeBuilder.swift */,
 				DCE0BCAF1CE217FA004251AF /* Layout.swift */,
 				DCE0BCB11CE21D41004251AF /* LayoutManager.swift */,
+				DC9E22F61CEA7CDA0059E49D /* AttributeRenderer.swift */,
+				DC9E22F81CEA7CEA0059E49D /* Submit.swift */,
+				DC9E22FA1CEA7DD40059E49D /* Relation.swift */,
+				DC9E22FC1CEA7F470059E49D /* RelationBuilder.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -349,13 +361,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCE17E2F1CEA2482002890E9 /* Observable.swift in Sources */,
+				DC9E22F71CEA7CDA0059E49D /* AttributeRenderer.swift in Sources */,
 				DC9E22F31CEA2B460059E49D /* Observer.swift in Sources */,
 				DC9E22E91CEA29200059E49D /* NutformsAction.swift in Sources */,
 				DCE0BCA81CE20DED004251AF /* AttributeLocalization.swift in Sources */,
 				DCE0BCA41CE20C44004251AF /* Attribute.swift in Sources */,
 				DCE0BC9E1CE20BDB004251AF /* Model.swift in Sources */,
+				DC9E22F91CEA7CEA0059E49D /* Submit.swift in Sources */,
 				DCE0BCA21CE20BF5004251AF /* ModelBuilder.swift in Sources */,
 				DCE0BC7F1CE20B1D004251AF /* ViewController.swift in Sources */,
+				DC9E22FB1CEA7DD40059E49D /* Relation.swift in Sources */,
 				DCE0BCAC1CE212DF004251AF /* AttributeBuilder.swift in Sources */,
 				DCE0BCA61CE20D63004251AF /* ModelLocalization.swift in Sources */,
 				DCE0BCB01CE217FA004251AF /* Layout.swift in Sources */,
@@ -366,6 +381,7 @@
 				DC9E22EF1CEA294D0059E49D /* AttributeAction.swift in Sources */,
 				DC9E22EB1CEA292F0059E49D /* Action.swift in Sources */,
 				DCE0BCB21CE21D41004251AF /* LayoutManager.swift in Sources */,
+				DC9E22FD1CEA7F470059E49D /* RelationBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

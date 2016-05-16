@@ -8,4 +8,12 @@
 
 import Foundation
 
-class AttributeAction: Action {}
+class AttributeAction: Action {
+
+    var attribute: Attribute
+
+    init(attribute: Attribute) {
+        self.attribute = attribute
+    }
+
+}

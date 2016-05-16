@@ -51,17 +51,19 @@ class Nutforms {
         let modelBuilder: ModelBuilder = ModelBuilder()
         
         // TODO: build model from parameters
-        modelBuilder.setName("Issue")
-        modelBuilder.addLocalization(ModelLocalization(
-            formLabel: "Report Issue",
-            submitButtonLabel: "Create"
+        modelBuilder
+            .setName("Issue")
+            .addLocalization(ModelLocalization(
+                formLabel: "Report Issue",
+                submitButtonLabel: "Create"
             ))
-        modelBuilder.addRenderer(ModelRenderer())
-        modelBuilder.addLayout(Layout(
-            betweenFieldsSpacing: 20,
-            labelToFieldSpacing: 10,
-            order: [1: "id", 2: "description", 3: "log"]
+            .addRenderer(ModelRenderer())
+            .addLayout(Layout(
+                betweenFieldsSpacing: 20,
+                labelToFieldSpacing: 10,
+                order: [1: "id", 2: "description", 3: "log"]
             ))
+            .addSubmit(Submit())
         
         // TODO: build attributes from parameters
         modelBuilder.addAttribute(Attribute(
@@ -69,17 +71,20 @@ class Nutforms {
             type: "java.lang.Long",
             localization: AttributeLocalization(label: "ID"),
             value: nil,
-            primary: true
+            primary: true,
+            renderer: AttributeRenderer()
             ))
         modelBuilder.addAttribute(Attribute(
             name: "description",
             type: "java.lang.String",
-            localization: AttributeLocalization(label: "Description")
+            localization: AttributeLocalization(label: "Description"),
+            renderer: AttributeRenderer()
             ))
         modelBuilder.addAttribute(Attribute(
             name: "log",
             type: "java.lang.String",
-            localization: AttributeLocalization(label: "Log")
+            localization: AttributeLocalization(label: "Log"),
+            renderer: AttributeRenderer()
             ))
         return modelBuilder.build()
     }

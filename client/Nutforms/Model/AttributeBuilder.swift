@@ -10,11 +10,12 @@ import Foundation
 
 class AttributeBuilder {
 
-    var name : String = ""
-    var type : String = ""
-    var value : String?
-    var primary : Bool = false
-    var localization : AttributeLocalization?
+    var name: String = ""
+    var type: String = ""
+    var value: String?
+    var primary: Bool = false
+    var localization: AttributeLocalization?
+    var renderer: AttributeRenderer?
 
     func setName(name: String) {
         self.name = name
@@ -36,8 +37,19 @@ class AttributeBuilder {
         self.localization = localization
     }
     
+    func addRenderer(renderer: AttributeRenderer) {
+        self.renderer = renderer
+    }
+    
     func build() -> Attribute {
-        return Attribute(name: self.name, type: self.type, localization: self.localization!, value: self.value, primary: self.primary)
+        return Attribute(
+            name: name,
+            type: type,
+            localization: localization!,
+            value: value,
+            primary: primary,
+            renderer: renderer!
+        )
     }
 
 }

@@ -16,17 +16,22 @@ class Model {
     var localization: ModelLocalization
     var renderer: ModelRenderer
     var layout: Layout
+    var submit: Submit
     
-    init(name: String, attributes: [String: Attribute], localization: ModelLocalization, renderer: ModelRenderer, layout: Layout) {
+    init(name: String, attributes: [String: Attribute], localization: ModelLocalization,
+         renderer: ModelRenderer, layout: Layout, submit: Submit) {
         self.name = name
         self.attributes = attributes
         self.localization = localization
         self.renderer = renderer
         self.layout = layout
+        self.submit = submit
         
         localization.bind(self)
         renderer.bind(self)
         layout.bind(self)
+        
+        attributes.forEach({(string, attribute) in attribute.bind(self)})
     }
 
 }

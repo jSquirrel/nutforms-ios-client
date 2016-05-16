@@ -28,6 +28,7 @@ class ModelBuilderTest: XCTestCase {
         modelBuilder.addLayout(Layout(betweenFieldsSpacing: 20, labelToFieldSpacing: 20, order: [:]))
         modelBuilder.addRenderer(ModelRenderer())
         modelBuilder.addLocalization(ModelLocalization(formLabel: "form label", submitButtonLabel: "submit"))
+        modelBuilder.addSubmit(Submit())
         let model = modelBuilder.build();
         XCTAssertEqual(model.name, "name")
         XCTAssertEqual(model.layout.betweenFieldsSpacing, 20)
