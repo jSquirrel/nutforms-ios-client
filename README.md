@@ -1,5 +1,6 @@
-# nutforms-ios-client
-iOS Client Application including Nutforms library prototype
+# Nutforms iOS Client
+
+Automatic aspect-oriented form generation for iOS applications
 
 ## Important Classes
 - Nutforms Rich Model
@@ -21,3 +22,5 @@ iOS Client Application including Nutforms library prototype
 ## TODO
   - Load aspects from server
   - Build Model from the downloaded aspects, see (https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/ModelBuilder.swift)
+  - Register callback functions and change values in Rich Model
+  - Build standalone library and separate client app which uses it
