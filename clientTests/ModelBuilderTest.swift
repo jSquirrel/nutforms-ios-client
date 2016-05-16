@@ -6,7 +6,9 @@
 //  Copyright © 2016 cz.cvut.fel.nutforms. All rights reserved.
 //
 
+import Foundation
 import XCTest
+@testable import client
 
 class ModelBuilderTest: XCTestCase {
     
@@ -20,16 +22,18 @@ class ModelBuilderTest: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    func testBuild() {
+        let modelBuilder: ModelBuilder = ModelBuilder()
+        modelBuilder.setName("name")
+        modelBuilder.addLayout(Layout(betweenFieldsSpacing: 20, labelToFieldSpacing: 20, order: [:]))
+        modelBuilder.addRenderer(ModelRenderer())
+        modelBuilder.addLocalization(ModelLocalization(formLabel: "form label", submitButtonLabel: "submit"))
+        let model = modelBuilder.build();
+        XCTAssertEqual(model.name, "name")
+        XCTAssertEqual(model.layout.betweenFieldsSpacing, 20)
+        XCTAssertEqual(model.layout.labelToFieldSpacing, 20)
+        XCTAssertEqual(model.localization.formLabel, "form label")
+        XCTAssertEqual(model.localization.submitButtonLabel, "submit")
     }
     
 }
