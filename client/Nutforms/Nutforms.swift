@@ -9,13 +9,26 @@
 import Foundation
 import UIKit
 
+/// Facade of Nutforms library for automatic generation of forms
 class Nutforms {
     
+    /**
+        Generates form for given contextual parameters.
+     
+        - Parameters:
+            - view: The UIView to bind the form to
+            - entityName: Unique identifier of the entity
+            - locale: Unique identifier of locale
+            - entityId: Identifier of the entity
+            - layout: Identifier of the layout
+            - widgetMapping: Widget mapping function
+            - context: Identifier of context
+    */
     func generateForm(
         view: UIView,
         entityName: String,
         locale: String,
-        entityId: Int,
+        entityId: Int?,
         layout: String,
         widgetMapping: (Attribute)->String,
         context: String
@@ -25,7 +38,14 @@ class Nutforms {
         let model: Model = self.buildModel()
         model.renderer.render(view)
     }
-    
+
+    /**
+     Initializes a new bicycle with the provided parts and specifications.
+     
+     - Parameters:
+     
+     - Returns: Rich Model built upon contextual parameters
+     */
     func buildModel() -> Model {
         
         let modelBuilder: ModelBuilder = ModelBuilder()

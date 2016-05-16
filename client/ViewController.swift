@@ -13,8 +13,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor=UIColor.whiteColor()
+        
+        // Use Nutforms to automatically generate form
         let nutforms = Nutforms()
-        nutforms.generateForm(self.view)
+        nutforms.generateForm(
+            self.view,
+            entityName: "cz.cvut.fel.nutforms.example.model.Bug",
+            locale: "en_US",
+            entityId: 1,
+            layout: "common/basic",
+            widgetMapping: {(Attribute) -> String in return "text-field"},
+            context: "edit"
+        )
         
     }
 
@@ -25,4 +35,3 @@ class ViewController: UIViewController {
 
 
 }
-
