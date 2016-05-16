@@ -11,44 +11,57 @@ import UIKit
 
 class Nutforms {
     
-    func generateForm(view: UIView) {
-
+    func generateForm(
+        view: UIView,
+        entityName: String,
+        locale: String,
+        entityId: Int,
+        layout: String,
+        widgetMapping: (Attribute)->String,
+        context: String
+        ) {
+        // TODO: fetch aspects
+        // TODO: fire events
+        let model: Model = self.buildModel()
+        model.renderer.render(view)
+    }
+    
+    func buildModel() -> Model {
+        
         let modelBuilder: ModelBuilder = ModelBuilder()
-
-        // TODO: build model from parameters?
+        
+        // TODO: build model from parameters
         modelBuilder.setName("Issue")
         modelBuilder.addLocalization(ModelLocalization(
             formLabel: "Report Issue",
             submitButtonLabel: "Create"
-        ))
+            ))
         modelBuilder.addRenderer(ModelRenderer())
         modelBuilder.addLayout(Layout(
             betweenFieldsSpacing: 20,
             labelToFieldSpacing: 10,
             order: [1: "id", 2: "description", 3: "log"]
-        ))
+            ))
         
-        // TODO: build attributes from parameters?
+        // TODO: build attributes from parameters
         modelBuilder.addAttribute(Attribute(
             name: "id",
             type: "java.lang.Long",
             localization: AttributeLocalization(label: "ID"),
             value: nil,
             primary: true
-        ))
+            ))
         modelBuilder.addAttribute(Attribute(
             name: "description",
             type: "java.lang.String",
             localization: AttributeLocalization(label: "Description")
-        ))
+            ))
         modelBuilder.addAttribute(Attribute(
             name: "log",
             type: "java.lang.String",
             localization: AttributeLocalization(label: "Log")
-        ))
-
-        let model: Model = modelBuilder.build()
-        model.renderer.render(view)
+            ))
+        return modelBuilder.build()
     }
 
 }
