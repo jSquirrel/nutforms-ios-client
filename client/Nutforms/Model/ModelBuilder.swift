@@ -16,7 +16,31 @@ class ModelBuilder {
     var renderer: ModelRenderer?
     var layout: Layout?
     var submit: Submit?
+    var attributeBuilders: [String: AttributeBuilder] = [:]
+    var relationBuilders: [String: RelationBuilder] = [:]
 
+    func getAttributeBuilder(name: String) -> AttributeBuilder {
+        if (!hasAttributeBuilder(name)) {
+            attributeBuilders[name] = AttributeBuilder(name: name)
+        }
+        return attributeBuilders[name]!
+    }
+    
+    func hasAttributeBuilder(name: String) -> Bool {
+        return attributeBuilders[name] != nil
+    }
+    
+    func getRelationBuilder(name: String) -> RelationBuilder {
+        if (!hasRelationBuilder(name)) {
+            relationBuilders[name] = RelationBuilder(name: name)
+        }
+        return relationBuilders[name]!
+    }
+    
+    func hasRelationBuilder(name: String) -> Bool {
+        return relationBuilders[name] != nil
+    }
+    
     func setName(name: String) -> ModelBuilder {
         self.name = name
         return self

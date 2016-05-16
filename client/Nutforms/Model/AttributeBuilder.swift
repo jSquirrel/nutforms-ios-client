@@ -17,28 +17,42 @@ class AttributeBuilder {
     var localization: AttributeLocalization?
     var renderer: AttributeRenderer?
 
-    func setName(name: String) {
+    init(name: String) {
         self.name = name
     }
+    
+    convenience init() {
+        self.init(name: "")
+    }
+    
+    func setName(name: String) -> AttributeBuilder {
+        self.name = name
+        return self
+    }
 
-    func setType(type: String) {
+    func setType(type: String) -> AttributeBuilder {
         self.type = type
+        return self
     }
     
-    func setValue(value: String) {
+    func setValue(value: String) -> AttributeBuilder {
         self.value = value
+        return self
     }
     
-    func setPrimary(primary: Bool) {
+    func setPrimary(primary: Bool) -> AttributeBuilder {
         self.primary = primary
+        return self
     }
     
-    func addLocalization(localization: AttributeLocalization) {
+    func addLocalization(localization: AttributeLocalization) -> AttributeBuilder {
         self.localization = localization
+        return self
     }
     
-    func addRenderer(renderer: AttributeRenderer) {
+    func addRenderer(renderer: AttributeRenderer) -> AttributeBuilder {
         self.renderer = renderer
+        return self
     }
     
     func build() -> Attribute {

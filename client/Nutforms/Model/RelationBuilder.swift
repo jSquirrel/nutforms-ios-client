@@ -12,8 +12,9 @@ class RelationBuilder: AttributeBuilder {
 
     var targetClass: String?
     
-    func setTargetClass(targetClass: String) {
+    func setTargetClass(targetClass: String) -> RelationBuilder {
         self.targetClass = targetClass
+        return self
     }
     
     override func build() -> Relation {
