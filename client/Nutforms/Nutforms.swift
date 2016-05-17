@@ -81,6 +81,7 @@ class Nutforms {
             .setName(entityName)
             .setContext(context)
             .addRenderer(ModelRenderer())
+            // TODO: load layout params from real layout
             .addLayout(Layout(
                 betweenFieldsSpacing: 20,
                 labelToFieldSpacing: 10,

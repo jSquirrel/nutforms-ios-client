@@ -18,6 +18,8 @@ class ModelRenderer {
     }
 
     func render(view: UIView) {
+        // TODO: move stuff to attribute renderer
+        
         let layoutManager = LayoutManager(
             labelToFieldSpacing: self.model!.layout.labelToFieldSpacing,
             betweenFieldsSpacing: self.model!.layout.betweenFieldsSpacing
