@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Model {
+class Model: Observable {
     
     var name: String
     var attributes: [String: Attribute]
@@ -34,6 +34,8 @@ class Model {
         self.context = context
         self.widgetMapping = widgetMapping
         self.aspectsSource = aspectsSource
+        
+        super.init()
         
         localization.bind(self)
         renderer.bind(self)
