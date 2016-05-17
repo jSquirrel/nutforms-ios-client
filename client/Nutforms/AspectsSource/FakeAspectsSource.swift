@@ -71,5 +71,37 @@ class FakeAspectsSource: AspectsSource {
             fulfill([:])
         }
     }
+    
+    /**
+     Fetches widget data.
+     
+     - parameter name: Name of the widget.
+     
+     - returns: Widget values.
+     */
+    func fetchWidget(name: String) -> [String: String] {
+        switch name {
+        case "number-field":
+            return [
+                "type": "UITextField",
+                "border_style": "UITextBorderStyle.RoundedRect",
+                "keyboard_type": "UIKeyboardType.DecimalPad"
+            ]
+        case "text-field":
+            return [
+                "type": "UITextField",
+                "border_style": "UITextBorderStyle.RoundedRect"
+            ]
+        case "label":
+            return [
+                "type": "UILabel"
+            ]
+        default:
+            return [
+                "type": "UITextField",
+                "border_style": "UITextBorderStyle.RoundedRect"
+            ]
+        }
+    }
 
 }

@@ -26,6 +26,11 @@ class Attribute: Observable {
         self.value = value
         self.primary = primary
         self.renderer = renderer
+        
+        super.init()
+        
+        localization.bind(self)
+        renderer.bind(self)
     }
     
     convenience init(name: String, type: String, localization: AttributeLocalization,

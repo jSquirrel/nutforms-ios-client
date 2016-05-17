@@ -30,6 +30,8 @@ class ModelBuilderTest: XCTestCase {
         modelBuilder.addRenderer(ModelRenderer())
         modelBuilder.addLocalization(ModelLocalization(formLabel: "form label", submitButtonLabel: "submit"))
         modelBuilder.addSubmit(Submit())
+        modelBuilder.setAspectsSource(FakeAspectsSource())
+        modelBuilder.setWidgetMapping( {(Attribute) -> String in return "text-field"} )
         let model = modelBuilder.build();
         XCTAssertEqual(model.name, "name")
         XCTAssertEqual(model.context, "context")

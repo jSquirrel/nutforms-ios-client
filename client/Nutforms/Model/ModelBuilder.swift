@@ -18,6 +18,8 @@ class ModelBuilder {
     var context: String?
     var attributeBuilders: [String: AttributeBuilder] = [:]
     var relationBuilders: [String: RelationBuilder] = [:]
+    var widgetMapping: ((Attribute) -> String)?
+    var aspectsSource: AspectsSource?
 
     func getAttributeBuilder(name: String) -> AttributeBuilder {
         if (!hasAttributeBuilder(name)) {
@@ -71,6 +73,16 @@ class ModelBuilder {
         return self
     }
     
+    func setWidgetMapping(widgetMapping: (Attribute) -> String) -> ModelBuilder {
+        self.widgetMapping = widgetMapping
+        return self
+    }
+    
+    func setAspectsSource(aspectsSource: AspectsSource) -> ModelBuilder {
+        self.aspectsSource = aspectsSource
+        return self
+    }
+    
     func build() -> Model {
         var attributes: [String: Attribute] = [:]
         attributeBuilders.forEach({(name, builder) in
@@ -91,7 +103,9 @@ class ModelBuilder {
             renderer: renderer!,
             layout: layout!,
             submit: submit!,
-            context: context!
+            context: context!,
+            widgetMapping: widgetMapping!,
+            aspectsSource: aspectsSource!
         );
     }
     

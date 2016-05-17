@@ -8,13 +8,25 @@
 
 import Foundation
 
+/// Contains building logic for Attribute
 class AttributeBuilder {
 
+    /// Name of the Attribute
     var name: String = ""
+    
+    /// Type of the Attribute
     var type: String = ""
+    
+    /// Value of the Attribute
     var value: String?
+    
+    /// Is the Attribute primary key of the Model?
     var primary: Bool = false
+    
+    /// Localization of the Attribute
     var localization: AttributeLocalization?
+    
+    /// Renderer of the Attribtue
     var renderer: AttributeRenderer?
 
     init(name: String) {

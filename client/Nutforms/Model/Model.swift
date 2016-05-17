@@ -19,9 +19,11 @@ class Model {
     var layout: Layout
     var submit: Submit
     var context: String
+    var widgetMapping: (Attribute) -> String
+    var aspectsSource: AspectsSource?
     
     init(name: String, attributes: [String: Attribute], relations: [String: Relation], localization: ModelLocalization,
-         renderer: ModelRenderer, layout: Layout, submit: Submit, context: String) {
+         renderer: ModelRenderer, layout: Layout, submit: Submit, context: String, widgetMapping: (Attribute) -> String, aspectsSource: AspectsSource) {
         self.name = name
         self.attributes = attributes
         self.relations = relations
@@ -30,6 +32,8 @@ class Model {
         self.layout = layout
         self.submit = submit
         self.context = context
+        self.widgetMapping = widgetMapping
+        self.aspectsSource = aspectsSource
         
         localization.bind(self)
         renderer.bind(self)

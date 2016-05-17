@@ -53,7 +53,8 @@ class Nutforms {
                         values: values,
                         layout: layout,
                         entityName: entityName,
-                        context: context
+                        context: context,
+                        widgetMapping: widgetMapping
                     )
                     model.renderer.render(view)
                 }
@@ -78,7 +79,8 @@ class Nutforms {
         values: [String: String],
         layout: [String: String],
         entityName: String,
-        context: String
+        context: String,
+        widgetMapping:(Attribute)->String
         ) -> Model {
         
         let modelBuilder = ModelBuilder()
@@ -94,7 +96,9 @@ class Nutforms {
             .setName(entityName)
             .setContext(context)
             .addRenderer(ModelRenderer())
-            // TODO: load layout params from real layout
+            .setAspectsSource(aspectsSource)
+            .setWidgetMapping(widgetMapping)
+            // TODO: set layout from real source
             .addLayout(Layout(
                 betweenFieldsSpacing: 20,
                 labelToFieldSpacing: 10,

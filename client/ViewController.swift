@@ -22,7 +22,20 @@ class ViewController: UIViewController {
             locale: "en_US",
             entityId: 1,
             layout: "common/basic",
-            widgetMapping: {(Attribute) -> String in return "text-field"},
+            widgetMapping: {(attribute: Attribute) -> String in
+                if attribute.primary {
+                    return "label"
+                }
+
+                switch attribute.type {
+                case "java.lang.Long":
+                    return "number-field"
+                case "java.lang.String":
+                    return "text-field"
+                default:
+                    return "text-field"
+                }
+            },
             context: "edit"
         )
         

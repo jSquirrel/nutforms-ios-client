@@ -54,4 +54,13 @@ protocol AspectsSource {
      */
     func fetchLayout(layout: String) -> Promise<[String: String]>
 
+    /**
+     Fetches widget data.
+     
+     - parameter name: Name of the widget.
+     
+     - returns: Widget values.
+     */
+    func fetchWidget(name: String) -> [String: String]
+
 }
