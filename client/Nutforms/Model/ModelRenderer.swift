@@ -31,7 +31,14 @@ class ModelRenderer {
         // Create widgets
         for key in sortedKeys {
             let attributeName = self.model!.layout.order[key]
-            let attribute = self.model!.attributes[attributeName!]
+            var attribute = self.model!.attributes[attributeName!]
+            if (attribute == nil) {
+                attribute = self.model!.relations[attributeName!]
+            }
+            if (attribute == nil) {
+                continue
+            }
+            
             self.createWidget(view, attribute: attribute!, layoutManager: layoutManager)
         }
         

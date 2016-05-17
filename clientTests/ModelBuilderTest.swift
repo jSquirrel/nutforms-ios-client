@@ -25,12 +25,14 @@ class ModelBuilderTest: XCTestCase {
     func testBuild() {
         let modelBuilder: ModelBuilder = ModelBuilder()
         modelBuilder.setName("name")
+        modelBuilder.setContext("context")
         modelBuilder.addLayout(Layout(betweenFieldsSpacing: 20, labelToFieldSpacing: 20, order: [:]))
         modelBuilder.addRenderer(ModelRenderer())
         modelBuilder.addLocalization(ModelLocalization(formLabel: "form label", submitButtonLabel: "submit"))
         modelBuilder.addSubmit(Submit())
         let model = modelBuilder.build();
         XCTAssertEqual(model.name, "name")
+        XCTAssertEqual(model.context, "context")
         XCTAssertEqual(model.layout.betweenFieldsSpacing, 20)
         XCTAssertEqual(model.layout.labelToFieldSpacing, 20)
         XCTAssertEqual(model.localization.formLabel, "form label")

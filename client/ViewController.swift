@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         self.view.backgroundColor=UIColor.whiteColor()
         
         // Use Nutforms to automatically generate form
-        let nutforms = Nutforms()
+        let nutforms = Nutforms(aspectsSource: FakeAspectsSource())
         nutforms.generateForm(
             self.view,
             entityName: "cz.cvut.fel.nutforms.example.model.Bug",

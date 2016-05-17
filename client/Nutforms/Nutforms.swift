@@ -12,6 +12,12 @@ import UIKit
 /// Facade of Nutforms library for automatic generation of forms
 class Nutforms {
     
+    var aspectsSource: AspectsSource
+    
+    init(aspectsSource: AspectsSource) {
+        self.aspectsSource = aspectsSource
+    }
+    
     /**
         Generates form for given contextual parameters.
      
@@ -35,7 +41,14 @@ class Nutforms {
         ) {
         // TODO: fetch aspects
         // TODO: fire events
-        let model: Model = self.buildModel()
+        let model: Model = self.buildModel(
+            aspectsSource.fetchClassMedadata(entityName),
+            localization: aspectsSource.fetchLocalization(entityName, locale: locale, context: context),
+            values: aspectsSource.fetchValues(entityName, entityId: entityId),
+            layout: aspectsSource.fetchLayout(layout),
+            entityName: entityName,
+            context: context
+        )
         model.renderer.render(view)
     }
 
@@ -46,46 +59,40 @@ class Nutforms {
      
      - Returns: Rich Model built upon contextual parameters
      */
-    func buildModel() -> Model {
+    func buildModel(
+        modelStructure: [String:[[String:String]]],
+        localization: [String: String],
+        values: [String: String],
+        layout: [String: String],
+        entityName: String,
+        context: String
+        ) -> Model {
         
-        let modelBuilder: ModelBuilder = ModelBuilder()
+        let modelBuilder = ModelBuilder()
+        let modelStructureParser = ModelStructureParser()
+        let localizationParser = LocalizationParser()
+        let valuesParser = ValuesParser()
         
-        // TODO: build model from parameters
+        modelStructureParser.parse(modelStructure, modelBuilder: modelBuilder)
+        localizationParser.parse(localization, modelBuilder: modelBuilder)
+        valuesParser.parse(values, modelBuilder: modelBuilder)
+        
         modelBuilder
-            .setName("Issue")
-            .addLocalization(ModelLocalization(
-                formLabel: "Report Issue",
-                submitButtonLabel: "Create"
-            ))
+            .setName(entityName)
+            .setContext(context)
             .addRenderer(ModelRenderer())
             .addLayout(Layout(
                 betweenFieldsSpacing: 20,
                 labelToFieldSpacing: 10,
-                order: [1: "id", 2: "description", 3: "log"]
+                order: [
+                    1: "id",
+                    2: "description",
+                    3: "log",
+                    4: "project"
+                ]
             ))
             .addSubmit(Submit())
-        
-        // TODO: build attributes from parameters
-        modelBuilder.addAttribute(Attribute(
-            name: "id",
-            type: "java.lang.Long",
-            localization: AttributeLocalization(label: "ID"),
-            value: nil,
-            primary: true,
-            renderer: AttributeRenderer()
-            ))
-        modelBuilder.addAttribute(Attribute(
-            name: "description",
-            type: "java.lang.String",
-            localization: AttributeLocalization(label: "Description"),
-            renderer: AttributeRenderer()
-            ))
-        modelBuilder.addAttribute(Attribute(
-            name: "log",
-            type: "java.lang.String",
-            localization: AttributeLocalization(label: "Log"),
-            renderer: AttributeRenderer()
-            ))
+
         return modelBuilder.build()
     }
 

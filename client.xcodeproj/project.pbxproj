@@ -24,6 +24,8 @@
 		DC9E23081CEA8E720059E49D /* ModelBuilderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E23071CEA8E720059E49D /* ModelBuilderTest.swift */; };
 		DC9E230A1CEA8F190059E49D /* ValuesParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E23091CEA8F190059E49D /* ValuesParserTest.swift */; };
 		DC9E230C1CEA90E20059E49D /* LocalizationParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E230B1CEA90E20059E49D /* LocalizationParserTest.swift */; };
+		DC9E230F1CEA93690059E49D /* AspectsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E230E1CEA93690059E49D /* AspectsSource.swift */; };
+		DC9E23111CEA95890059E49D /* FakeAspectsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E23101CEA95890059E49D /* FakeAspectsSource.swift */; };
 		DCE0BC7D1CE20B1D004251AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE0BC7C1CE20B1D004251AF /* AppDelegate.swift */; };
 		DCE0BC7F1CE20B1D004251AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE0BC7E1CE20B1D004251AF /* ViewController.swift */; };
 		DCE0BC821CE20B1D004251AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCE0BC801CE20B1D004251AF /* Main.storyboard */; };
@@ -73,6 +75,8 @@
 		DC9E23071CEA8E720059E49D /* ModelBuilderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBuilderTest.swift; sourceTree = "<group>"; };
 		DC9E23091CEA8F190059E49D /* ValuesParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuesParserTest.swift; sourceTree = "<group>"; };
 		DC9E230B1CEA90E20059E49D /* LocalizationParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationParserTest.swift; sourceTree = "<group>"; };
+		DC9E230E1CEA93690059E49D /* AspectsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AspectsSource.swift; path = Nutforms/AspectsSource/AspectsSource.swift; sourceTree = "<group>"; };
+		DC9E23101CEA95890059E49D /* FakeAspectsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FakeAspectsSource.swift; path = Nutforms/AspectsSource/FakeAspectsSource.swift; sourceTree = "<group>"; };
 		DCE0BC791CE20B1D004251AF /* client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE0BC7C1CE20B1D004251AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCE0BC7E1CE20B1D004251AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +179,15 @@
 			name = Parser;
 			sourceTree = "<group>";
 		};
+		DC9E230D1CEA93490059E49D /* AspectsSource */ = {
+			isa = PBXGroup;
+			children = (
+				DC9E230E1CEA93690059E49D /* AspectsSource.swift */,
+				DC9E23101CEA95890059E49D /* FakeAspectsSource.swift */,
+			);
+			name = AspectsSource;
+			sourceTree = "<group>";
+		};
 		DCE0BC701CE20B1D004251AF = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +238,7 @@
 		DCE0BC9C1CE20B4F004251AF /* Nutforms */ = {
 			isa = PBXGroup;
 			children = (
+				DC9E230D1CEA93490059E49D /* AspectsSource */,
 				DC9E22FE1CEA83D40059E49D /* Parser */,
 				DC9E22E71CEA29050059E49D /* Observer */,
 				DC9E22E61CEA28E80059E49D /* Model */,
@@ -394,6 +408,7 @@
 				DCE0BCA81CE20DED004251AF /* AttributeLocalization.swift in Sources */,
 				DCE0BCA41CE20C44004251AF /* Attribute.swift in Sources */,
 				DCE0BC9E1CE20BDB004251AF /* Model.swift in Sources */,
+				DC9E230F1CEA93690059E49D /* AspectsSource.swift in Sources */,
 				DC9E22F91CEA7CEA0059E49D /* Submit.swift in Sources */,
 				DCE0BCA21CE20BF5004251AF /* ModelBuilder.swift in Sources */,
 				DCE0BC7F1CE20B1D004251AF /* ViewController.swift in Sources */,
@@ -409,6 +424,7 @@
 				DC9E22EF1CEA294D0059E49D /* AttributeAction.swift in Sources */,
 				DC9E22EB1CEA292F0059E49D /* Action.swift in Sources */,
 				DCE0BCB21CE21D41004251AF /* LayoutManager.swift in Sources */,
+				DC9E23111CEA95890059E49D /* FakeAspectsSource.swift in Sources */,
 				DC9E22FD1CEA7F470059E49D /* RelationBuilder.swift in Sources */,
 				DC9E23001CEA83ED0059E49D /* ModelStructureParser.swift in Sources */,
 			);

@@ -11,11 +11,11 @@ import Foundation
 class ModelBuilder {
     
     var name: String = ""
-    var attributes: [String: Attribute] = [:]
     var localization: ModelLocalization?
     var renderer: ModelRenderer?
     var layout: Layout?
     var submit: Submit?
+    var context: String?
     var attributeBuilders: [String: AttributeBuilder] = [:]
     var relationBuilders: [String: RelationBuilder] = [:]
 
@@ -46,9 +46,8 @@ class ModelBuilder {
         return self
     }
     
-    func addAttribute(attribute: Attribute) -> ModelBuilder {
-        // TODO: check if attribute exists?
-        self.attributes[attribute.name] = attribute
+    func setContext(context: String) -> ModelBuilder {
+        self.context = context
         return self
     }
     
@@ -73,13 +72,26 @@ class ModelBuilder {
     }
     
     func build() -> Model {
+        var attributes: [String: Attribute] = [:]
+        attributeBuilders.forEach({(name, builder) in
+            builder.addRenderer(AttributeRenderer())
+            attributes[name] = builder.build()
+        })
+        var relations: [String: Relation] = [:]
+        relationBuilders.forEach({(name, builder) in
+            builder.addRenderer(AttributeRenderer())
+            relations[name] = builder.build()
+        })
+        
         return Model(
             name: name,
             attributes: attributes,
+            relations: relations,
             localization: localization!,
             renderer: renderer!,
             layout: layout!,
-            submit: submit!
+            submit: submit!,
+            context: context!
         );
     }
     
