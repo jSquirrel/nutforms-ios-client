@@ -4,18 +4,25 @@ Automatic aspect-oriented form generation for iOS applications
 
 ## Important Classes
 - Nutforms Rich Model
-  - [Model](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Model.swift)
-  - [ModelLocalization](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/ModelLocalization.swift)
-  - [ModelRenderer](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/ModelRenderer.swift)
-  - [Layout](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Layout.swift)
-  - [Attribute](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Attribute.swift)
-  - [AttributeLocalization](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/AttributeLocalization.swift)
+  - [Model](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Model/Model.swift)
+  - [ModelLocalization](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Model/ModelLocalization.swift)
+  - [ModelRenderer](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Model/ModelRenderer.swift)
+  - [Layout](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Model/Layout.swift)
+  - [Attribute](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Model/Attribute.swift)
+  - [AttributeLocalization](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Model/AttributeLocalization.swift)
 - Nutforms Facade
   - [Nutforms](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Nutforms.swift)
-- Nutforms Helpers
-  - [ModelBuilder](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/ModelBuilder.swift)
-  - [AttributeBuilder](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/AttributeBuilder.swift)
-- Application
+- Nutforms Rich Model Builders
+  - [ModelBuilder](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Model/ModelBuilder.swift)
+  - [AttributeBuilder](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Model/AttributeBuilder.swift)
+  - [RelationBuilder](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Model/RelationBuilder.swift)
+- Aspect Parsers
+  - [ModelStructureParser](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Parser/ModelStructureParser.swift)
+  - [LocalizationParser](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Parser/LocalizationParser.swift)
+  - [ValuesParser](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/Parser/ValuesParser.swift)
+- Aspects Sources 
+  - [AspectsSource](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/AspectsSource/AspectsSource.swift)
+- iOS Application
   - [AppDelegate](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/AppDelegate.swift)
   - [ViewController](https://github.com/jSquirrel/nutforms-ios-client/blob/master/client/ViewController.swift)
 
