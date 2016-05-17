@@ -7,60 +7,69 @@
 //
 
 import Foundation
+import PromiseKit
 
 class FakeAspectsSource: AspectsSource {
     
-    func fetchClassMedadata(entityName: String) -> [String:[[String:String]]] {
-        return [
-            "attributes": [
-                [
-                    "name": "id",
-                    "type": "java.lang.Long",
-                    "is_primary": "true"
+    func fetchClassMedadata(entityName: String) -> Promise<[String:[[String:String]]]> {
+        return Promise<[String:[[String:String]]]>{ fulfill, reject in
+            fulfill([
+                "attributes": [
+                    [
+                        "name": "id",
+                        "type": "java.lang.Long",
+                        "is_primary": "true"
+                    ],
+                    [
+                        "name": "description",
+                        "type": "java.lang.String",
+                        "is_primary": "false"
+                    ],
+                    [
+                        "name": "log",
+                        "type": "java.lang.String",
+                        "is_primary": "false"
+                    ],
                 ],
-                [
-                    "name": "description",
-                    "type": "java.lang.String",
-                    "is_primary": "false"
-                ],
-                [
-                    "name": "log",
-                    "type": "java.lang.String",
-                    "is_primary": "false"
-                ],
-            ],
-            "relationships": [
-                [
-                    "name": "project",
-                    "type": "toOne",
-                    "target_class": "cz.cvut.fel.nutforms.example.model.Project"
-                ],
-            ]
-        ]
+                "relationships": [
+                    [
+                        "name": "project",
+                        "type": "toOne",
+                        "target_class": "cz.cvut.fel.nutforms.example.model.Project"
+                    ],
+                ]
+                ])
+        }
     }
     
-    func fetchLocalization(entityName: String, locale: String, context: String) -> [String: String] {
-        return [
-            "form.label": "Report Bug",
-            "form.submit.value": "Report",
-            "form.id.label": "ID",
-            "form.description.label": "Description",
-            "form.log.label": "Log",
-            "form.project.label": "Project",
-        ]
+    func fetchLocalization(entityName: String, locale: String, context: String) -> Promise<[String: String]> {
+        return Promise<[String: String]>{ fulfill, reject in
+            fulfill([
+                "form.label": "Report Bug",
+                "form.submit.value": "Report",
+                "form.id.label": "ID",
+                "form.description.label": "Description",
+                "form.log.label": "Log",
+                "form.project.label": "Project",
+            ])
+        }
     }
     
-    func fetchValues(entityName: String, entityId: Int?) -> [String: String] {
-        return [
-            "id": "1",
-            "description": "Bug #1",
-            "log": "java.lang.NullPointerException in ...",
-            "project": "1"
-        ]
+    func fetchValues(entityName: String, entityId: Int?) -> Promise<[String: String]> {
+        return Promise<[String: String]>{ fulfill, reject in
+            fulfill([
+                "id": "1",
+                "description": "Bug #1",
+                "log": "java.lang.NullPointerException in ...",
+                "project": "1"
+            ])
+        }
     }
     
-    func fetchLayout(layout: String) -> [String: String] {
-        return [:]
+    func fetchLayout(layout: String) -> Promise<[String: String]> {
+        return Promise<[String: String]>{ fulfill, reject in
+            fulfill([:])
+        }
     }
 
 }

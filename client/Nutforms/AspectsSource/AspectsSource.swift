@@ -7,15 +7,51 @@
 //
 
 import Foundation
+import PromiseKit
 
+/**
+ *  Source of aspect data.
+ *  Provides methods for fetching them.
+ */
 protocol AspectsSource {
 
-    func fetchClassMedadata(entityName: String) -> [String:[[String:String]]]
+    /**
+     Fetches model structure metadata for entity class.
+     
+     - parameter entityName: Name of the entity class.
+     
+     - returns: Promise with the structure metadata.
+     */
+    func fetchClassMedadata(entityName: String) -> Promise<[String:[[String:String]]]>
     
-    func fetchLocalization(entityName: String, locale: String, context: String) -> [String: String]
+    /**
+     Fetches localization aspect data for entity class in locale and business context.
+     
+     - parameter entityName: Name of the entity class.
+     - parameter locale:     Name of the locale.
+     - parameter context:    Name of the business context.
+     
+     - returns: Promise with localization data.
+     */
+    func fetchLocalization(entityName: String, locale: String, context: String) -> Promise<[String: String]>
     
-    func fetchValues(entityName: String, entityId: Int?) -> [String: String]
+    /**
+     Fetches values for entity class instance.
+     
+     - parameter entityName: Name of the entity class.
+     - parameter entityId:   Identifier of the entity.
+     
+     - returns: Promise with entity's values.
+     */
+    func fetchValues(entityName: String, entityId: Int?) -> Promise<[String: String]>
     
-    func fetchLayout(layout: String) -> [String: String]
+    /**
+     Fetches layout aspect data.
+     
+     - parameter layout: Name of the layout.
+     
+     - returns: Promise with layout data.
+     */
+    func fetchLayout(layout: String) -> Promise<[String: String]>
 
 }

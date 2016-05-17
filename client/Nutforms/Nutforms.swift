@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import PromiseKit
 
 /// Facade of Nutforms library for automatic generation of forms
 class Nutforms {
@@ -19,17 +20,16 @@ class Nutforms {
     }
     
     /**
-        Generates form for given contextual parameters.
+     Generates form for given contextual parameters.
      
-        - Parameters:
-            - view: The UIView to bind the form to
-            - entityName: Unique identifier of the entity
-            - locale: Unique identifier of locale
-            - entityId: Identifier of the entity
-            - layout: Identifier of the layout
-            - widgetMapping: Widget mapping function
-            - context: Identifier of context
-    */
+     - parameter view:          The UIView to bind the form to
+     - parameter entityName:    Unique identifier of the entity
+     - parameter locale:        Unique identifier of locale
+     - parameter entityId:      Identifier of the entity
+     - parameter layout:        Identifier of the layout
+     - parameter widgetMapping: Widget mapping function
+     - parameter context:       Identifier of context
+     */
     func generateForm(
         view: UIView,
         entityName: String,
@@ -39,25 +39,38 @@ class Nutforms {
         widgetMapping: (Attribute)->String,
         context: String
         ) {
-        // TODO: fetch aspects
-        // TODO: fire events
-        let model: Model = self.buildModel(
-            aspectsSource.fetchClassMedadata(entityName),
-            localization: aspectsSource.fetchLocalization(entityName, locale: locale, context: context),
-            values: aspectsSource.fetchValues(entityName, entityId: entityId),
-            layout: aspectsSource.fetchLayout(layout),
-            entityName: entityName,
-            context: context
-        )
-        model.renderer.render(view)
+        let classMetadataPromise = aspectsSource.fetchClassMedadata(entityName)
+        let localizationPromise = aspectsSource.fetchLocalization(entityName, locale: locale, context: context)
+        let valuesPromise = aspectsSource.fetchValues(entityName, entityId: entityId)
+        let layoutPromise = aspectsSource.fetchLayout(layout)
+        
+        classMetadataPromise.then{ classMetadata in
+            when(localizationPromise, valuesPromise, layoutPromise)
+                .then{ localization, values, layout -> Void in
+                    let model: Model = self.buildModel(
+                        classMetadata,
+                        localization: localization,
+                        values: values,
+                        layout: layout,
+                        entityName: entityName,
+                        context: context
+                    )
+                    model.renderer.render(view)
+                }
+            }
     }
-
+    
     /**
-     Initializes a new bicycle with the provided parts and specifications.
+     Builds Rich Model upon contextual parameters.
      
-     - Parameters:
+     - parameter modelStructure: Model structure metadata of entity class
+     - parameter localization:   Localization data
+     - parameter values:         Values of the entity
+     - parameter layout:         Layout data
+     - parameter entityName:     Name of the entity class
+     - parameter context:        Name of the business context
      
-     - Returns: Rich Model built upon contextual parameters
+     - returns: Rich Model built upon the contextual parameters
      */
     func buildModel(
         modelStructure: [String:[[String:String]]],

@@ -6,7 +6,6 @@ use_frameworks!
 target 'client' do
   pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
   pod 'Alamofire', '~> 3.4'
+  pod "PromiseKit", "~> 3.0"
 end
-
-
 
