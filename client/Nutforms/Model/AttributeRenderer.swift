@@ -30,6 +30,8 @@ class AttributeRenderer {
         let widgetName = attribute!.model!.widgetMapping(attribute!)
         let widgetData = attribute!.model!.aspectsSource!.fetchWidget(widgetName)
         
+        // TODO: register for events
+        
         switch widgetData["type"]! {
             case "label":
                 let label = UILabel(frame: CGRect(x: 20, y: CGFloat(layoutManager.verticalPosition), width: view.frame.width-40, height: CGFloat(layoutManager.labelHeight)))
@@ -74,6 +76,8 @@ class AttributeRenderer {
                 
                 // TODO: implement more options
                 
+                myTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+                
                 view.addSubview(myTextField)
                 layoutManager.incrementVerticalPosition(Int(myTextField.frame.size.height) + layoutManager.fieldToNextFieldSpacing)
                 break
@@ -82,5 +86,9 @@ class AttributeRenderer {
                 break
         }
     }
-    
+
+    @objc func textFieldDidChange(textField: UITextField) {
+        attribute!.setValue(textField.text)
+    }
+
 }

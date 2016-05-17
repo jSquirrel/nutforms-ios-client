@@ -101,7 +101,12 @@ class ModelRenderer {
         button.setTitle(model.localization.submitButtonLabel, forState: .Normal)
         button.setTitleColor(UIColor.blueColor(), forState: .Normal)
         button.titleLabel!.textAlignment=NSTextAlignment.Center
+        button.addTarget(self, action: #selector(self.submitButtonClicked(_:)), forControlEvents: UIControlEvents.TouchDown)
         view.addSubview(button)
+    }
+    
+    @objc func submitButtonClicked(button: UIButton) {
+        model!.submit.submit()
     }
 
 }
