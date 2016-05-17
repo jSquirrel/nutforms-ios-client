@@ -53,8 +53,8 @@ class FakeAspectsSource: AspectsSource {
     func fetchValues(entityName: String, entityId: Int?) -> [String: String] {
         return [
             "id": "1",
-            "description": "desc",
-            "log": "log",
+            "description": "Bug #1",
+            "log": "java.lang.NullPointerException in ...",
             "project": "1"
         ]
     }
