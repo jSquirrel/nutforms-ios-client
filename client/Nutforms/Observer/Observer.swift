@@ -10,6 +10,11 @@ import Foundation
 
 protocol Observer {
 
+    /**
+     Updates the Observer about event represented by Action object.
+
+     - parameter action: The Action object.
+     */
     func update(action: Action)
 
 }

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3DB85748D83868F2BE47D42D /* Pods_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324617FBE34C4546D356AA8A /* Pods_client.framework */; };
+		DC750B5D1CED19BC000CFD01 /* ModelGeneratedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC750B5C1CED19BC000CFD01 /* ModelGeneratedAction.swift */; };
+		DC750B5F1CED19F9000CFD01 /* FormRenderedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC750B5E1CED19F9000CFD01 /* FormRenderedAction.swift */; };
+		DC750B611CED1A19000CFD01 /* AspectsFetchedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC750B601CED1A19000CFD01 /* AspectsFetchedAction.swift */; };
+		DC750B631CED1AEE000CFD01 /* ModelSubmittedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC750B621CED1AEE000CFD01 /* ModelSubmittedAction.swift */; };
+		DC750B651CED1B18000CFD01 /* AttributeValueChangedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC750B641CED1B18000CFD01 /* AttributeValueChangedAction.swift */; };
 		DC9E22E91CEA29200059E49D /* NutformsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E22E81CEA29200059E49D /* NutformsAction.swift */; };
 		DC9E22EB1CEA292F0059E49D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E22EA1CEA292F0059E49D /* Action.swift */; };
 		DC9E22ED1CEA293E0059E49D /* ModelAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E22EC1CEA293E0059E49D /* ModelAction.swift */; };
@@ -59,6 +64,11 @@
 		324617FBE34C4546D356AA8A /* Pods_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90924951D39986E7E3BC5B38 /* Pods-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-client/Pods-client.release.xcconfig"; sourceTree = "<group>"; };
 		AD68E6394A53E1341658883E /* Pods-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-client/Pods-client.debug.xcconfig"; sourceTree = "<group>"; };
+		DC750B5C1CED19BC000CFD01 /* ModelGeneratedAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelGeneratedAction.swift; path = Nutforms/Observer/ModelGeneratedAction.swift; sourceTree = "<group>"; };
+		DC750B5E1CED19F9000CFD01 /* FormRenderedAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormRenderedAction.swift; path = Nutforms/Observer/FormRenderedAction.swift; sourceTree = "<group>"; };
+		DC750B601CED1A19000CFD01 /* AspectsFetchedAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AspectsFetchedAction.swift; path = Nutforms/Observer/AspectsFetchedAction.swift; sourceTree = "<group>"; };
+		DC750B621CED1AEE000CFD01 /* ModelSubmittedAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelSubmittedAction.swift; path = Nutforms/Observer/ModelSubmittedAction.swift; sourceTree = "<group>"; };
+		DC750B641CED1B18000CFD01 /* AttributeValueChangedAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeValueChangedAction.swift; path = Nutforms/Observer/AttributeValueChangedAction.swift; sourceTree = "<group>"; };
 		DC9E22E81CEA29200059E49D /* NutformsAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NutformsAction.swift; path = Nutforms/Observer/NutformsAction.swift; sourceTree = "<group>"; };
 		DC9E22EA1CEA292F0059E49D /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Nutforms/Observer/Action.swift; sourceTree = "<group>"; };
 		DC9E22EC1CEA293E0059E49D /* ModelAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelAction.swift; path = Nutforms/Observer/ModelAction.swift; sourceTree = "<group>"; };
@@ -165,6 +175,11 @@
 				DC9E22EC1CEA293E0059E49D /* ModelAction.swift */,
 				DC9E22EE1CEA294D0059E49D /* AttributeAction.swift */,
 				DC9E22F21CEA2B460059E49D /* Observer.swift */,
+				DC750B5C1CED19BC000CFD01 /* ModelGeneratedAction.swift */,
+				DC750B5E1CED19F9000CFD01 /* FormRenderedAction.swift */,
+				DC750B601CED1A19000CFD01 /* AspectsFetchedAction.swift */,
+				DC750B621CED1AEE000CFD01 /* ModelSubmittedAction.swift */,
+				DC750B641CED1B18000CFD01 /* AttributeValueChangedAction.swift */,
 			);
 			name = Observer;
 			sourceTree = "<group>";
@@ -403,14 +418,18 @@
 				DC9E23041CEA84340059E49D /* ValuesParser.swift in Sources */,
 				DCE17E2F1CEA2482002890E9 /* Observable.swift in Sources */,
 				DC9E22F71CEA7CDA0059E49D /* AttributeRenderer.swift in Sources */,
+				DC750B631CED1AEE000CFD01 /* ModelSubmittedAction.swift in Sources */,
 				DC9E22F31CEA2B460059E49D /* Observer.swift in Sources */,
 				DC9E22E91CEA29200059E49D /* NutformsAction.swift in Sources */,
 				DCE0BCA81CE20DED004251AF /* AttributeLocalization.swift in Sources */,
 				DCE0BCA41CE20C44004251AF /* Attribute.swift in Sources */,
 				DCE0BC9E1CE20BDB004251AF /* Model.swift in Sources */,
 				DC9E230F1CEA93690059E49D /* AspectsSource.swift in Sources */,
+				DC750B611CED1A19000CFD01 /* AspectsFetchedAction.swift in Sources */,
+				DC750B5F1CED19F9000CFD01 /* FormRenderedAction.swift in Sources */,
 				DC9E22F91CEA7CEA0059E49D /* Submit.swift in Sources */,
 				DCE0BCA21CE20BF5004251AF /* ModelBuilder.swift in Sources */,
+				DC750B5D1CED19BC000CFD01 /* ModelGeneratedAction.swift in Sources */,
 				DCE0BC7F1CE20B1D004251AF /* ViewController.swift in Sources */,
 				DC9E22FB1CEA7DD40059E49D /* Relation.swift in Sources */,
 				DCE0BCAC1CE212DF004251AF /* AttributeBuilder.swift in Sources */,
@@ -427,6 +446,7 @@
 				DC9E23111CEA95890059E49D /* FakeAspectsSource.swift in Sources */,
 				DC9E22FD1CEA7F470059E49D /* RelationBuilder.swift in Sources */,
 				DC9E23001CEA83ED0059E49D /* ModelStructureParser.swift in Sources */,
+				DC750B651CED1B18000CFD01 /* AttributeValueChangedAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

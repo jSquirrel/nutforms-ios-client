@@ -8,4 +8,4 @@
 
 import Foundation
 
-class ModelAction: Action {}
+protocol ModelAction: Action {}

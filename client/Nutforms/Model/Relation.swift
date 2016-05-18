@@ -11,8 +11,22 @@ import Foundation
 /// Relation of Rich Model
 class Relation: Attribute {
 
+    /// Name of the target class
     var targetClass: String
     
+    /**
+     Relation initializer.
+     
+     - parameter name:         Name of the Relation.
+     - parameter type:         Type of the Relation.
+     - parameter localization: Localization of the Relation.
+     - parameter value:        Value of the Relation.
+     - parameter primary:      Is the Relation primary?
+     - parameter renderer:     Rendered of the Relation.
+     - parameter targetClass:  Target class of the realation.
+     
+     - returns: The new Relation instance.
+     */
     init(name: String, type: String, localization: AttributeLocalization,
          value: String?, primary: Bool, renderer: AttributeRenderer, targetClass: String) {
         self.targetClass = targetClass

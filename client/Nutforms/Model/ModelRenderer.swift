@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Renders the Model form
 class ModelRenderer {
 
     /// Model to which the Renderer belongs
@@ -105,6 +106,11 @@ class ModelRenderer {
         view.addSubview(button)
     }
     
+    /**
+     Callback function for click on submit button.
+     
+     - parameter button: The submit button.
+     */
     @objc func submitButtonClicked(button: UIButton) {
         model!.submit.submit()
     }

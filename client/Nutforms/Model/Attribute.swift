@@ -51,7 +51,7 @@ class Attribute: Observable {
     
     func setValue(value: String?) {
         self.value = value;
-        self.trigger("value-changed", action: AttributeAction(attribute: self))
+        self.trigger("value-changed", action: AttributeValueChangedAction(attribute: self))
     }
     
 }

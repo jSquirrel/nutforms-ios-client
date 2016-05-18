@@ -11,7 +11,7 @@ import UIKit
 import PromiseKit
 
 /// Facade of Nutforms library for automatic generation of forms
-class Nutforms {
+class Nutforms: Observable {
     
     var aspectsSource: AspectsSource
     
@@ -47,6 +47,9 @@ class Nutforms {
         classMetadataPromise.then{ classMetadata in
             when(localizationPromise, valuesPromise, layoutPromise)
                 .then{ localization, values, layout -> Void in
+                    
+                    self.trigger("aspects-fetched", action: AspectsFetchedAction(classMetadata: classMetadata, localization: localization, values: values, layout: layout))
+                    
                     let model: Model = self.buildModel(
                         classMetadata,
                         localization: localization,
@@ -56,7 +59,12 @@ class Nutforms {
                         context: context,
                         widgetMapping: widgetMapping
                     )
+                    
+                    self.trigger("model-generated", action: ModelGeneratedAction(model: model))
+                    
                     model.renderer.render(view)
+                    
+                    self.trigger("form-rendered", action: FormRenderedAction(model: model))
                 }
             }
     }

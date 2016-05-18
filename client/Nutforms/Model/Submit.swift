@@ -8,17 +8,26 @@
 
 import Foundation
 
+/// Contains Submit logic for the Model
 class Submit {
 
+    /// Instance of the Model
     var model: Model?
     
+    /**
+     Binds the Submit to Model instance.
+     
+     - parameter model: The Model instance to bind to.
+     */
     func bind(model: Model) {
         self.model = model
     }
     
+    /**
+     Submits data of the model.
+     */
     func submit() {
-        // TODO: set values to the attributes
-        // TODO: trigger action
+        model!.trigger("model-submitted", action: ModelSubmittedAction(model: model!))
     }
 
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Layout for the Model form
 class Layout {
     
     var betweenFieldsSpacing: Int

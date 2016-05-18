@@ -9,14 +9,27 @@
 import Foundation
 import UIKit
 
+/// Renders Attribute's widget
 class AttributeRenderer {
     
+    /// Instance of Attribute
     var attribute: Attribute?
     
+    /**
+     Binds the AttributeRenderer to Attribute instance.
+     
+     - parameter attribute: The Attribute instance to bind to.
+     */
     func bind(attribute: Attribute) {
         self.attribute = attribute
     }
 
+    /**
+     Renders the Attribute widget.
+     
+     - parameter view:          The view to render the widget to.
+     - parameter layoutManager: LayoutManager instance.
+     */
     func render(view: UIView, layoutManager: LayoutManager) {
         // Create label
         let label = UILabel(frame: CGRect(x: 20, y: CGFloat(layoutManager.verticalPosition), width: view.frame.width-40, height: CGFloat(layoutManager.labelHeight)))
@@ -87,6 +100,11 @@ class AttributeRenderer {
         }
     }
 
+    /**
+     Callback method for text field change event.
+     
+     - parameter textField: The TextField instance.
+     */
     @objc func textFieldDidChange(textField: UITextField) {
         attribute!.setValue(textField.text)
     }

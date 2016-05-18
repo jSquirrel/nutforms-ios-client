@@ -8,8 +8,10 @@
 
 import Foundation
 
+/// Manages Layout for the Model form
 class LayoutManager {
     
+    /// Vertical position
     var verticalPosition: Int
     var labelHeight: Int
     var labelToFieldSpacing: Int
