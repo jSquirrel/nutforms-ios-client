@@ -8,8 +8,15 @@
 
 import Foundation
 
+/// Parses localization aspect data
 class LocalizationParser {
-
+    
+    /**
+     Parses localization data and calls appropriate functions on ModelBuilder.
+     
+     - parameter data:         The model structure metadata.
+     - parameter modelBuilder: The model builder.
+     */
     func parse(data: [String:String], modelBuilder: ModelBuilder) {
         let formLabel = data["form.label"]
         let submitValue = data["form.submit.value"]

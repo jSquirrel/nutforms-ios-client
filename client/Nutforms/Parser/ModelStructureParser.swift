@@ -8,8 +8,15 @@
 
 import Foundation
 
+/// Parses model structure aspect metadata
 class ModelStructureParser {
     
+    /**
+     Parses model structure and calls appropriate functions on ModelBuilder.
+     
+     - parameter data:         The model structure metadata.
+     - parameter modelBuilder: The model builder.
+     */
     func parse(data: [String:[[String:String]]], modelBuilder: ModelBuilder) {
         data.forEach({(type, values) in
             switch(type) {

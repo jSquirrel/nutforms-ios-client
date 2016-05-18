@@ -8,8 +8,15 @@
 
 import Foundation
 
+/// Parses entity values data and calls appropriate methods on ModelBuilder.
 class ValuesParser {
-
+    
+    /**
+     Parses values data and calls appropriate functions on ModelBuilder.
+     
+     - parameter data:         The model structure metadata.
+     - parameter modelBuilder: The model builder.
+     */
     func parse(data: [String:String], modelBuilder: ModelBuilder) {
         data.forEach({(name, value) in
             if (modelBuilder.hasAttributeBuilder(name)) {
