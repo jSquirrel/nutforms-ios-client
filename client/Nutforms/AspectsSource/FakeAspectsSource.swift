@@ -9,8 +9,16 @@
 import Foundation
 import PromiseKit
 
+/// Fetches static aspects, for testing purposes.
 class FakeAspectsSource: AspectsSource {
     
+    /**
+     Fetches model structure metadata for entity class.
+     
+     - parameter entityName: Name of the entity class.
+     
+     - returns: Promise with the structure metadata.
+     */
     func fetchClassMedadata(entityName: String) -> Promise<[String:[[String:String]]]> {
         return Promise<[String:[[String:String]]]>{ fulfill, reject in
             fulfill([
@@ -42,6 +50,15 @@ class FakeAspectsSource: AspectsSource {
         }
     }
     
+    /**
+     Fetches localization aspect data for entity class in locale and business context.
+     
+     - parameter entityName: Name of the entity class.
+     - parameter locale:     Name of the locale.
+     - parameter context:    Name of the business context.
+     
+     - returns: Promise with localization data.
+     */
     func fetchLocalization(entityName: String, locale: String, context: String) -> Promise<[String: String]> {
         return Promise<[String: String]>{ fulfill, reject in
             fulfill([
@@ -55,6 +72,14 @@ class FakeAspectsSource: AspectsSource {
         }
     }
     
+    /**
+     Fetches values for entity class instance.
+     
+     - parameter entityName: Name of the entity class.
+     - parameter entityId:   Identifier of the entity.
+     
+     - returns: Promise with entity's values.
+     */
     func fetchValues(entityName: String, entityId: Int?) -> Promise<[String: String]> {
         return Promise<[String: String]>{ fulfill, reject in
             fulfill([
@@ -66,6 +91,13 @@ class FakeAspectsSource: AspectsSource {
         }
     }
     
+    /**
+     Fetches layout aspect data.
+     
+     - parameter layout: Name of the layout.
+     
+     - returns: Promise with layout data.
+     */
     func fetchLayout(layout: String) -> Promise<[String: String]> {
         return Promise<[String: String]>{ fulfill, reject in
             fulfill([:])
