@@ -8,12 +8,14 @@
 
 import Foundation
 
+/// Action triggered when an Attribute changes its value
 class AttributeValueChangedAction: AttributeAction {
     
-    var model: Model
-    
-    init(model: Model) {
-        self.model = model
+    ///  The Attribute
+    var attribute: Attribute
+
+    init(attribute: Attribute) {
+        self.attribute = attribute
     }
     
 }
